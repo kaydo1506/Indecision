@@ -1,14 +1,27 @@
 // Big Button
 .big-button {
-  background: $purple;
-  border: none;
-  border-bottom: .6rem solid darken($purple, 10%);
+  &:hover{
+    background: coral;
+  }
+  background: none;
+  border: 4px solid coral;
+  //border-bottom: .6rem solid darken($purple, 10%);
   color: white;
   font-weight: bold;
   font-size: $l-size;
   margin-bottom: $m-size;
   padding: 2.4rem;
   width: 100%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: background .4s ease;
+  -webkit-transition: background .4s ease;
+  -moz-transition: background .4s ease;
+  -ms-transition: background .4s ease;
+  -o-transition: background .4s ease;
 }
 
 .big-button:disabled {
@@ -22,14 +35,33 @@
 }
 
 // Button
-.button {
-  background: $purple;
-  border: none;
-  border-bottom: .3rem solid darken($purple, 10%);
+.button,
+.button-addOption {
+  //background: $purple;
+  //border: none;
+  //border-bottom: .3rem solid darken($purple, 10%);
+  //color: white;
+  background: $light-blue;
   color: white;
   font-weight: 500;
   padding: $s-size;
   font-size: $m-size;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: 4px solid coral;
+  transition: background .4s ease;
+  -webkit-transition: background .4s ease;
+  -moz-transition: background .4s ease;
+  -ms-transition: background .4s ease;
+  -o-transition: background .4s ease;
+}
+.button-addOption{
+  &:hover{
+    background: coral;
+  }
 }
 
 .button--link {

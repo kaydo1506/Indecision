@@ -12,3 +12,20 @@
   margin: 0;
   word-break: break-all;
 }
+
+.radio {
+  display: flex;
+
+  &__img{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    align-self: center;
+    color: $off-white;
+    background: none;
+  }
+  &__button{
+    background: none;
+    border: none;
+  }
+}
