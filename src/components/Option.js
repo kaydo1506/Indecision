@@ -10,12 +10,12 @@ const Option = (props) => {
     };
 
     useEffect(() => {
-        setState(JSON.parse(window.localStorage.getItem(props.count)));
+        setState(JSON.parse(window.localStorage.getItem(props.optionText)));
     }, [props]);
     useEffect(() => {
-        window.localStorage.setItem(props.count, state);
+        window.localStorage.setItem(props.optionText, state);
         console.log(state);
-    }, [state, props.count]);
+    }, [state, props.optionText]);
 
     return (
         <div className='option'>
