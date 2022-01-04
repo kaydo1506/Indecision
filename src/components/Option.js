@@ -1,12 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Option = (props) => {
     const img1 = <img alt='' src='/radio-active.png' className='radio__img' />;
     const img2 = <img alt='' src='/radio-inactive.png' className='radio__img' />;
     const [state, setState] = useState(false);
 
+    const child = useRef();
+    const parent0 = useRef();
+    function insertAfter(referenceNode, newNode) {
+        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+        setTimeout(insertAfter, 5000);
+    }
+
     const handleStateChange = () => {
-        state === true ? setState(false) : setState(true);
+        if (state) {
+            setState(false);
+            insertAfter(parent0.current, child.current);
+        } else {
+            setState(true);
+
+            insertAfter(props.parent.current, child.current);
+        }
+        // state === true ? setState(false) : setState(true);
     };
 
     useEffect(() => {
@@ -14,28 +29,41 @@ const Option = (props) => {
     }, [props]);
     useEffect(() => {
         window.localStorage.setItem(props.optionText, state);
-        console.log(state);
     }, [state, props.optionText]);
 
     return (
-        <div className='option'>
-            <div className='radio'>
-                <button className='radio__button' onClick={handleStateChange}>
-                    {state ? img1 : img2}
-                </button>
+        <div>
+            <ul ref={parent0} className='option__container'>
+                <li ref={child} className='option'>
+                    <div className='radio'>
+                        <button className='radio__button' onClick={handleStateChange}>
+                            {state ? img1 : img2}
+                        </button>
 
-                <p className='option__text radio__text'>{props.optionText}</p>
-            </div>
-            <button
-                className='button button--link'
-                onClick={(e) => {
-                    props.handleDeleteOption(props.optionText);
-                }}
-            >
-                remove
-            </button>
+                        <p className='option__text radio__text'>
+                            <span className={state ? 'checked' : null}>{props.optionText}</span>
+                        </p>
+                    </div>
+                    <button
+                        className='button button--link'
+                        onClick={(e) => {
+                            props.handleDeleteOption(props.optionText);
+                        }}
+                    >
+                        remove
+                    </button>
+                </li>
+            </ul>
         </div>
     );
 };
 
 export default Option;
+
+export const Append = (props) => {
+    return (
+        <div>
+            <ul ref={props.parent}></ul>
+        </div>
+    );
+};
