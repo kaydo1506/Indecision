@@ -9,7 +9,7 @@ const Option = (props) => {
     const parent0 = useRef();
     function insertAfter(referenceNode, newNode) {
         referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-        setTimeout(insertAfter, 5000);
+        setTimeout(insertAfter, 1000);
     }
 
     const handleStateChange = () => {
