@@ -1,25 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Option = (props) => {
     const img1 = <img alt='' src='/radio-active.png' className='radio__img' />;
     const img2 = <img alt='' src='/radio-inactive.png' className='radio__img' />;
     const [state, setState] = useState(false);
 
-    const child = useRef();
-    const parent0 = useRef();
-    function insertAfter(referenceNode, newNode) {
-        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-        setTimeout(insertAfter, 1000);
-    }
-
     const handleStateChange = () => {
         if (state) {
             setState(false);
-            insertAfter(parent0.current, child.current);
         } else {
             setState(true);
-
-            insertAfter(props.parent.current, child.current);
         }
         // state === true ? setState(false) : setState(true);
     };
@@ -33,8 +23,8 @@ const Option = (props) => {
 
     return (
         <div>
-            <ul ref={parent0} className='option__container'>
-                <li ref={child} className='option'>
+            <ul className='option__container'>
+                <li className='option'>
                     <div className='radio'>
                         <button className='radio__button' onClick={handleStateChange}>
                             {state ? img1 : img2}
@@ -59,11 +49,3 @@ const Option = (props) => {
 };
 
 export default Option;
-
-export const Append = (props) => {
-    return (
-        <div>
-            <ul ref={props.parent}></ul>
-        </div>
-    );
-};
