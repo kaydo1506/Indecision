@@ -22,6 +22,7 @@
   -moz-transition: background .4s ease;
   -ms-transition: background .4s ease;
   -o-transition: background .4s ease;
+  font-family: fantasy;
 }
 
 .big-button:disabled {
@@ -57,6 +58,7 @@
   -moz-transition: background .4s ease;
   -ms-transition: background .4s ease;
   -o-transition: background .4s ease;
+  font-family: fantasy;
 }
 .button-addOption{
   &:hover{
@@ -69,4 +71,9 @@
   border: none;
   color: $off-white;
   padding: 0;
+  font-family: fantasy;
+  
+}
+.btn-X{
+ margin-right: 20px;
 }

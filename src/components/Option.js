@@ -35,12 +35,12 @@ const Option = (props) => {
                         </p>
                     </div>
                     <button
-                        className='button button--link'
+                        className='button button--link btn-X'
                         onClick={(e) => {
                             props.handleDeleteOption(props.optionText);
                         }}
                     >
-                        remove
+                        X
                     </button>
                 </li>
             </ul>
