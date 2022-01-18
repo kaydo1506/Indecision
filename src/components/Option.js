@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import DeleteOutlined from '@mui/icons-material/DeleteOutlined';
+// import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 
 const Option = (props) => {
     const img1 = <img alt='' src='/radio-active.png' className='radio__img' />;
@@ -34,14 +37,16 @@ const Option = (props) => {
                             <span className={state ? 'checked' : null}>{props.optionText}</span>
                         </p>
                     </div>
-                    <button
-                        className='button button--link btn-X'
-                        onClick={(e) => {
-                            props.handleDeleteOption(props.optionText);
-                        }}
-                    >
-                        X
-                    </button>
+                    <Tooltip title='Delete'>
+                        <button
+                            className='button button--link btn-X'
+                            onClick={(e) => {
+                                props.handleDeleteOption(props.optionText);
+                            }}
+                        >
+                            <DeleteOutlined />
+                        </button>
+                    </Tooltip>
                 </li>
             </ul>
         </div>
@@ -49,3 +54,11 @@ const Option = (props) => {
 };
 
 export default Option;
+// <button
+// className='button button--link btn-X'
+// onClick={(e) => {
+//     props.handleDeleteOption(props.optionText);
+// }}
+// >
+// X
+// </button>
